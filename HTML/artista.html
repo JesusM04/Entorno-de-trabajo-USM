@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios con Navbar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/CSS/stylesUSER.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #343a40 !important;
+    }
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+    }
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .form-control {
+      border-radius: 5px;
+    }
+    .btn-custom {
+      background-color: #343a40;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .btn-custom:hover {
+      background-color: #23272b;
+    }
+    .btn-section {
+      margin-top: 20px;
+    }
+    .ventana {
+      display: none; /* Oculta todas las ventanas por defecto */
+    }
+    .ventana.active {
+      display: block; /* Muestra la ventana activa */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <!-- Logo a la izquierda -->
+      <a class="navbar-brand" href="#">Mi Sitio</a>
+  
+      <!-- Botón de toggle para dispositivos móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Contenedor de los elementos del navbar -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Botones de navegación en el centro -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="cambiarVentana('ventanaInicio')">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cambiarVentana('ventanaDatos')">Ver Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cambiarVentana('ventanaContacto')">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cambiarVentana('ventanaTransacciones')">Transacciones</a>
+          </li>
+
+        </ul>
+
+    
+
+  
+        <!-- Dropdown a la derecha -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Opciones
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#" onclick="cambiarVentana('ventanaUsuarios')">Mi Perfil</a></li>
+              <li><a class="dropdown-item" href="#" onclick="cambiarVentana('ventanaConfiguracion')">Configuración</a></li>
+              <li><a class="dropdown-item" href="#" onclick="">Salir</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido Dinámico -->
+  <main>
+   <!-- Ventana de Inicio -->
+<section id="ventanaInicio" class="ventana active">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <!-- Título grande con emoji -->
+          <h1 class="text-center display-4 mb-4">Bienvenido usuario 👋</h1>
+  
+          <!-- Carrusel de imágenes -->
+          <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- Imagen 1 -->
+              <div class="carousel-item active">
+                <img src="/IMGS/49993de8-6d12-4667-b497-8cf89f795eac.jpg" class="d-block w-100 carousel-image" alt="Imagen 1">
+              </div>
+              <!-- Imagen 2 -->
+              <div class="carousel-item">
+                <img src="/IMGS/bisky crying.jpg" class="d-block w-100 carousel-image" alt="Imagen 2">
+              </div>
+              <!-- Imagen 3 -->
+              <div class="carousel-item">
+                <img src="/IMGS/Illumi's funny face __ Hunter x Hunter.jpg" class="d-block w-100 carousel-image" alt="Imagen 3">
+              </div>
+              <!-- Imagen 4 -->
+              <div class="carousel-item">
+                <img src="/IMGS/Puppy Leorio.jpg" class="d-block w-100 carousel-image" alt="Imagen 4">
+              </div>
+              <!-- Imagen 5 -->
+              <div class="carousel-item">
+                <img src="/IMGS/HxH.jpg" class="d-block w-100 carousel-image" alt="Imagen 5">
+              </div>
+            </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+<script>
+    // Función para abrir el formulario cuando se haga clic en "Realizar Operación"
+function abrirFormulario() {
+  // Aquí podemos simular que al hacer clic en el botón se abriría la ventana del formulario
+  // Por ahora, solo mostramos la ventana de formulario que ya tienes creada
+  window.scrollTo(0, 0); // Mueve la página al inicio
+  document.getElementById("ventanaFormularioUnificado").style.display = "block"; // Muestra el formulario
+}
+
+</script>
+
+<!-- Ventana con la Tabla de Datos -->
+<!-- Sección de Lista de Operaciones -->
+<section id="ventanaDatos" class="ventana">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h2 class="text-center mb-4">Lista de Operaciones</h2>
+                <div class="table-container">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Urgencia</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan Pérez</td>
+                                <td>juan.perez@mail.com</td>
+                                <td>Urgente</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(1)">Realizar Operación</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Maria López</td>
+                                <td>maria.lopez@mail.com</td>
+                                <td>Regular</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(2)">Realizar Operación</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Carlos Martínez</td>
+                                <td>carlos.martinez@mail.com</td>
+                                <td>Bajo</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(3)">Realizar Operación</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Laura García</td>
+                                <td>laura.garcia@mail.com</td>
+                                <td>Urgente</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(4)">Realizar Operación</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Pedro Sánchez</td>
+                                <td>pedro.sanchez@mail.com</td>
+                                <td>Regular</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(5)">Realizar Operación</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Ventana del Formulario Unificado -->
+<section id="ventanaFormularioUnificado" class="ventana">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 form-container">
+                <!-- Sección 1: Parte 1 del Formulario -->
+                <div id="seccion1">
+                    <h2 class="text-center mb-4">Formulario de Registro - Parte 1</h2>
+                    <form id="formulario1">
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+                        </div>
+                        <!-- Correo Electrónico -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo">
+                        </div>
+                        <!-- Contraseña -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                        </div>
+                        <!-- Urgencia del Pedido -->
+                        <div class="mb-3">
+                            <label for="urgencia" class="form-label">Urgencia del Pedido</label>
+                            <select class="form-control" id="urgencia">
+                                <option value="urgente">Urgente</option>
+                                <option value="regular">Regular</option>
+                                <option value="bajo">Bajo</option>
+                            </select>
+                        </div>
+                        <!-- Botón Siguiente -->
+                        <div class="text-center btn-section">
+                            <button type="button" class="btn btn-custom" onclick="mostrarSeccion2()">Siguiente</button>
+                            <button type="button" class="btn btn-danger" onclick="cerrarFormulario()">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sección 2: Parte 2 del Formulario -->
+                <div id="seccion2" style="display: none;">
+                    <h2 class="text-center mb-4">Formulario de Registro - Parte 2</h2>
+                    <form id="formulario2">
+                        <!-- Fecha de Nacimiento -->
+                        <div class="mb-3">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="fechaNacimiento">
+                        </div>
+                        <!-- Género -->
+                        <div class="mb-3">
+                            <label class="form-label">Género</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="genero" id="masculino" value="masculino">
+                                    <label class="form-check-label" for="masculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="genero" id="femenino" value="femenino">
+                                    <label class="form-check-label" for="femenino">Femenino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="genero" id="otro" value="otro">
+                                    <label class="form-check-label" for="otro">Otro</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Comentarios -->
+                        <div class="mb-3">
+                            <label for="comentarios" class="form-label">Comentarios</label>
+                            <textarea class="form-control" id="comentarios" rows="4" placeholder="Escribe tus comentarios"></textarea>
+                        </div>
+                        <!-- Botones -->
+                        <div class="text-center btn-section">
+                            <button type="button" class="btn btn-custom" onclick="mostrarSeccion1()">Anterior</button>
+                            <button type="button" class="btn btn-custom" onclick="limpiarTodo()">Limpiar Todo</button>
+                            <button type="submit" class="btn btn-custom">Enviar</button>
+                            <button type="button" class="btn btn-danger" onclick="cerrarFormulario()">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Sección de Lista de Transacciones Bancarias -->
+<section id="ventanaTransacciones" class="ventana">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Lista de Transacciones</h2>
+                <div class="table-container">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre del Cliente</th>
+                                <th>Monto</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan Pérez</td>
+                                <td>$1,500.00</td>
+                                <td>15/03/2025</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(1)">Realizar Depósito</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Maria López</td>
+                                <td>$2,200.00</td>
+                                <td>14/03/2025</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(2)">Realizar Depósito</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Carlos Martínez</td>
+                                <td>$850.00</td>
+                                <td>13/03/2025</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(3)">Realizar Depósito</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Laura García</td>
+                                <td>$3,000.00</td>
+                                <td>12/03/2025</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(4)">Realizar Depósito</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Pedro Sánchez</td>
+                                <td>$1,200.00</td>
+                                <td>11/03/2025</td>
+                                <td><button class="btn btn-custom" onclick="abrirFormulario(5)">Realizar Depósito</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Formulario de Depósito -->
+            <div class="col-md-6">
+                <div class="form-container p-4 shadow-lg rounded">
+                    <h2 class="text-center mb-4">Realizar Depósito</h2>
+                    <form id="formularioBanco">
+                        <!-- Monto a Depositar -->
+                        <div class="mb-3">
+                            <label for="monto" class="form-label">Monto a Depositar</label>
+                            <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto" min="1">
+                        </div>
+
+                        <!-- Número de Referencia -->
+                        <div class="mb-3">
+                            <label for="referencia" class="form-label">Número de Referencia</label>
+                            <input type="text" class="form-control" id="referencia" placeholder="Ingrese el número de referencia">
+                        </div>
+
+                        <!-- Banco de Procedencia -->
+                        <div class="mb-3">
+                            <label for="bancoProcedencia" class="form-label">Banco de Procedencia</label>
+                            <select class="form-control" id="bancoProcedencia">
+                                <option value="Banco Nacional">Banco Nacional</option>
+                                <option value="Banco del Pueblo">Banco del Pueblo</option>
+                                <option value="Banco Universal">Banco Universal</option>
+                            </select>
+                            <button type="button" class="btn btn-sm btn-outline-success mt-2" onclick="agregarBanco('bancoProcedencia')">+ Agregar Banco</button>
+                        </div>
+
+                        <!-- Banco Receptor -->
+                        <div class="mb-3">
+                            <label for="bancoReceptor" class="form-label">Banco Receptor</label>
+                            <select class="form-control" id="bancoReceptor">
+                                <option value="Banco Nacional">Banco Nacional</option>
+                                <option value="Banco del Pueblo">Banco del Pueblo</option>
+                                <option value="Banco Universal">Banco Universal</option>
+                            </select>
+                            <button type="button" class="btn btn-sm btn-outline-success mt-2" onclick="agregarBanco('bancoReceptor')">+ Agregar Banco</button>
+                        </div>
+
+                        <!-- Titular de la Cuenta -->
+                        <div class="mb-3">
+                            <label for="titular" class="form-label">Titular de la Cuenta</label>
+                            <input type="text" class="form-control" id="titular" placeholder="Ingrese el nombre del titular">
+                        </div>
+
+                        <!-- Botón de Enviar -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-custom">Depositar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  <script>
+    // Función para cambiar de ventana
+    function cambiarVentana(ventanaId) {
+        var ventanas = document.querySelectorAll('.ventana');
+        ventanas.forEach(function(ventana) {
+            ventana.classList.remove('active');
+        });
+        var ventanaSeleccionada = document.getElementById(ventanaId);
+        ventanaSeleccionada.classList.add('active');
+    }
+
+
+
+     // Función para mostrar la Sección 2
+function mostrarSeccion2() {
+  document.getElementById('seccion1').style.display = 'none'; // Oculta la Sección 1
+  document.getElementById('seccion2').style.display = 'block'; // Muestra la Sección 2
+}
+
+// Función para mostrar la Sección 1
+function mostrarSeccion1() {
+  document.getElementById('seccion2').style.display = 'none'; // Oculta la Sección 2
+  document.getElementById('seccion1').style.display = 'block'; // Muestra la Sección 1
+}
+
+// Función para limpiar la sección actual
+function limpiarSeccionActual() {
+  if (document.getElementById('seccion1').style.display !== 'none') {
+    document.getElementById('formulario1').reset(); // Limpia el Formulario 1
+  } else {
+    document.getElementById('formulario2').reset(); // Limpia el Formulario 2
+  }
+}
+
+
+    // Variable global para almacenar el ID del pedido
+let idPedido = null;
+
+// Función para abrir el formulario y pasar el ID del pedido
+function abrirFormulario(id) {
+    idPedido = id; // Guardamos el ID del pedido
+    document.getElementById('ventanaFormularioUnificado').style.display = 'block';
+    // Puedes agregar aquí cualquier lógica adicional que necesites al abrir el formulario
+}
+
+// Función para cerrar el formulario
+function cerrarFormulario() {
+    document.getElementById('ventanaFormularioUnificado').style.display = 'none';
+    // Limpiar el formulario si lo deseas
+    limpiarTodo();
+}
+
+// Función para limpiar todo
+function limpiarTodo() {
+    document.getElementById('formulario1').reset();
+    document.getElementById('formulario2').reset();
+    idPedido = null;
+}
+
+  </script>
+  
+  </body>
+</html>
+
+  

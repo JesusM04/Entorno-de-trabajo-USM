@@ -1,0 +1,177 @@
+/* RESET DE ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+  }
+  
+  /* ENCABEZADO Y NAVEGACIÓN */
+  header {
+    background-color: #222;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: #ddd;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    color: #fff;
+    background-color: #444;
+  }
+  
+  .nav-button.active {
+    color: #fff;
+    background-color: #e91e63;
+  }
+  
+  /* SISTEMA DE VENTANAS */
+  .ventana {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .ventana.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ESTILO DE TABLA Y SCROLL */
+  .table-section {
+    margin-top: 2rem;
+  }
+  
+  .table-container {
+    max-height: 400px;  /* Puedes ajustar esta altura según lo que necesites */
+    overflow-y: auto;   /* Habilita el scroll cuando el contenido exceda el contenedor */
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #e91e63;
+    color: white;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f5f5f5;  /* Efecto hover para filas */
+  }
+  
+  .main {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+
+  /* Personalización del Scroll */
+::-webkit-scrollbar {
+    width: 8px;  /* Establece el ancho del scrollbar */
+    height: 8px; /* Establece la altura del scrollbar para scroll horizontal */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Fondo del track (la parte en la que se desplaza el pulgar) */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Color del pulgar del scroll */
+    border-radius: 10px;      /* Bordes redondeados para el pulgar */
+    border: 3px solid #f1f1f1; /* Deja un pequeño borde alrededor del pulgar */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;  /* Color del pulgar cuando el usuario pasa el ratón por encima */
+  }
+  
+  ::-webkit-scrollbar-button {
+    display: none;  /* Oculta los botones de flechas en el scroll */
+  }
+  
+  
+  /* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #e91e63;
+    min-width: 120px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+  }
+  
+  .dropdown-content button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Mostrar el menú solo cuando se pase el mouse sobre "Cuenta" */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

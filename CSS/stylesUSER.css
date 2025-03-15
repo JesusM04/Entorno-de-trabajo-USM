@@ -1,0 +1,156 @@
+/* Estilos generales para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilos para la cabecera de la tabla */
+  .table thead th {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.2rem;
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+  }
+  
+  /* Estilos para las celdas del cuerpo de la tabla */
+  .table tbody td {
+    padding: 12px; /* Espaciado interno */
+    font-size: 1rem;
+    color: #333333; /* Color de texto oscuro */
+    border-bottom: 1px solid #e0e0e0; /* Borde inferior */
+  }
+  
+  /* Estilos para las filas impares (efecto zebra) */
+  .table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa; /* Fondo gris claro */
+  }
+  
+  /* Estilos para las filas pares */
+  .table tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  /* Estilos para las celdas de encabezado en el cuerpo */
+  .table tbody th {
+    background-color: #e91e63; /* Fondo rosa */
+    color: #ffffff; /* Texto blanco */
+    font-weight: 600;
+    padding: 12px;
+    text-align: left; /* Alinear texto a la izquierda */
+  }
+  
+  /* Estilos para el hover en las filas */
+  .table tbody tr:hover {
+    background-color: #f1f1f1; /* Fondo gris al pasar el mouse */
+  }
+  
+  /* Estilos para la imagen de perfil */
+  .img-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #343a40; /* Borde oscuro */
+    border-radius: 50%; /* Imagen circular */
+  }
+  
+  /* Estilos para el contenedor de la tabla */
+  .table-responsive {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  .btn-custom {
+    background-color: #e91e63; /* Fondo rosa */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #c2185b; /* Rosa más oscuro al pasar el mouse */
+  }
+
+
+
+
+  /* Ajustar la posición del dropdown */
+.navbar-nav.ms-auto .dropdown-menu {
+    right: 0; /* Alinea el menú desplegable a la derecha */
+    left: auto; /* Anula la alineación por defecto a la izquierda */
+    margin-right: 10px; /* Agrega un margen a la derecha */
+  }
+  
+  /* Evitar que el menú desplegable se desborde */
+  .navbar-nav.ms-auto .dropdown-menu {
+    max-width: 200px; /* Limita el ancho del menú */
+    overflow: hidden; /* Evita el desbordamiento */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+
+
+  
+/* Centrar solo el ul con la clase navbar-nav mx-auto */
+.navbar-nav.mx-auto {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 100%; /* Ocupar todo el ancho disponible */
+    gap: 1rem; /* Espacio entre los elementos (opcional) */
+  }
+
+
+  /* Estilos para el carrusel */
+.carousel {
+    border-radius: 15px; /* Borde redondeado */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+    max-width: 500px; /* Ancho máximo del carrusel */
+    margin: 0 auto; /* Centrar el carrusel */
+  }
+  
+  /* Estilos para las imágenes del carrusel */
+  .carousel-image {
+    height: 500px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+    filter: grayscale(30%) brightness(80%) contrast(110%); /* Filtro artístico */
+    transition: filter 0.5s ease; /* Transición suave para el filtro */
+  }
+  
+  /* Efecto hover en las imágenes */
+  .carousel-image:hover {
+    filter: grayscale(0%) brightness(100%) contrast(100%); /* Restaura el filtro al pasar el mouse */
+  }
+  
+  /* Estilos para los botones de control */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%; /* Ancho de los botones */
+    background-color: rgba(244, 225, 225, 0.3); /* Fondo semi-transparente */
+    border-radius: 50%; /* Botones redondos */
+    opacity: 0.7; /* Opacidad inicial */
+    transition: opacity 0.3s ease; /* Transición suave */
+  }
+  
+  /* Efecto hover en los botones */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 1; /* Opacidad completa al pasar el mouse */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo más oscuro */
+  }
+  
+  /* Estilos para los íconos de los botones */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1); /* Invertir el color de los íconos (blanco) */
+  }
+

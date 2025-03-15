@@ -1,0 +1,175 @@
+<?php
+session_start(); // Inicia la sesión
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.html"); // Redirige al login si no está logueado
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventanas con Cambio Dinámico</title>
+  <link rel="stylesheet" href="../CSS/stylesUSER.css">
+</head>
+<body>
+  <!-- ENCABEZADO Y NAVEGACIÓN -->
+  <header>
+    <nav>
+      <div class="logo">Phantom Troupe</div>
+      <div class="nav-buttons">
+        <button id="btnInicio" class="nav-button active">Mi Perfil</button>
+        <button id="btnPedido" class="nav-button">Pedido</button>
+        <button id="btnResumen" class="nav-button">Resumen</button>
+        <button id="btnConfig" class="nav-button">Configuración</button>
+
+        <!-- Nuevo Menú Desplegable de Cuenta -->
+        <div class="dropdown">
+          <button class="nav-button">Cuenta ▾</button>
+          <div class="dropdown-content">
+            <button id="btnEditar">Editar Perfil</button>
+            <button id="btnSalir">Salir</button>
+            <!-- Script para el botón de salir -->
+            <script>
+                document.getElementById("btnSalir").addEventListener("click", function() {
+                window.location.href = "index.html";  // Redirige al index.html
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SISTEMA DE VENTANAS -->
+    <section id="ventanaInicio" class="ventana active">      
+        <div class="table-section">
+          <h2>Registro de Miembros</h2>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Cédula de Identidad</th>
+                  <th>Correo Electrónico</th>
+                  <th>Fecha de Registro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Juan</td>
+                  <td>Pérez</td>
+                  <td>12345678</td>
+                  <td>juan.perez@email.com</td>
+                  <td>2024-03-14</td>
+                </tr>
+                <tr>
+                  <td>María</td>
+                  <td>Gómez</td>
+                  <td>87654321</td>
+                  <td>maria.gomez@email.com</td>
+                  <td>2024-03-13</td>
+                </tr>
+                <tr>
+                  <td>Carlos</td>
+                  <td>Ramírez</td>
+                  <td>11223344</td>
+                  <td>carlos.ramirez@email.com</td>
+                  <td>2024-03-12</td>
+                </tr>
+                <!-- Agregar más filas si es necesario -->
+                <tr>
+                  <td>Pedro</td>
+                  <td>López</td>
+                  <td>98765432</td>
+                  <td>pedro.lopez@email.com</td>
+                  <td>2024-03-10</td>
+                </tr>
+                <tr>
+                  <td>Ana</td>
+                  <td>Martínez</td>
+                  <td>23456789</td>
+                  <td>ana.martinez@email.com</td>
+                  <td>2024-03-09</td>
+                </tr>
+                <tr>
+                  <td>Lucía</td>
+                  <td>Fernández</td>
+                  <td>76543210</td>
+                  <td>lucia.fernandez@email.com</td>
+                  <td>2024-03-08</td>
+                </tr>
+                <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+                  <tr>
+                    <td>Lucía</td>
+                    <td>Fernández</td>
+                    <td>76543210</td>
+                    <td>lucia.fernandez@email.com</td>
+                    <td>2024-03-08</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      
+
+    <section id="ventanaRegistro" class="ventana">
+      
+    </section>
+
+    <section id="ventanaMiembros" class="ventana">
+      <h2>Miembros</h2>
+      <p>Aquí puedes ver los miembros registrados.</p>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

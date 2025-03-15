@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Sitio Web</title>
+  <link href="../CSS/stylesINDEX.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Phantom Troupe</div>
+      <div class="nav-buttons">
+        <button id="btnInicio" class="nav-button active">Inicio</button>
+        <button id="btnGaleria" class="nav-button">Galería</button>
+        <button id="btnContacto" class="nav-button">Contacto</button>
+        <button id="btnServicios" class="nav-button">Servicios</button>
+
+        <!-- Nuevo Menú Desplegable de Cuenta -->
+        <div class="dropdown">
+          <button class="nav-button">Cuenta ▾</button>
+          <div class="dropdown-content">
+            <button id="btnLogin">Login</button>
+            <button id="btnSignup">Signup</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- VENTANA 1: INICIO -->
+    <section id="ventanaInicio" class="ventana active">
+      <div class="hero d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative">
+          <h1 class="phantom-title">Phantom Troupe</h1>
+          <p class="phantom-subtitle">Ofreciendo obras dignas de la Araña</p>
+        </div>
+      </div>
+      
+
+      
+    
+      <div class="carousel-section">
+        <h2>KNOW US BY YOURSELF</h2>
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="carousel-item active">
+              <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/02/2-way-split-of-phatom-troupe-from-hunterxhunter.png" alt="inspiration">
+              <div class="carousel-caption">
+                <h3>Servicio 1</h3>
+                <p>Descripción del primer servicio que ofrecemos a nuestros clientes.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/originals/f0/f6/ca/f0f6ca0e67948ec035addf93cfd5617b.jpg" alt="art">
+              <div class="carousel-caption">
+                <h3>Servicio 2</h3>
+                <p>Descripción del segundo servicio que ofrecemos a nuestros clientes.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://wallpapers.com/images/featured/phantom-troupe-7k6nxj03nfpgzvwv.jpg" alt="fate">
+              <div class="carousel-caption">
+                <h3>Servicio 3</h3>
+                <p>Descripción del tercer servicio que ofrecemos a nuestros clientes.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control prev">&lt;</button>
+          <button class="carousel-control next">&gt;</button>
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+    <!-- VENTANA 2: GALERÍA -->
+    <section id="ventanaGaleria" class="ventana">
+      <h1>Nuestra Galería</h1>
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="https://images.saymedia-content.com/.image/t_share/MTkyOTkyMzE2OTQ3MjQ0MjUz/website-background-templates.jpg" alt="Imagen 1">
+          <h3>Equipo Completo</h3>
+        </div>
+        <div class="galeria-item">
+          <img src="https://www.pixelstalk.net/wp-content/uploads/images6/Aesthetic-Wallpaper-Laptop-HD-Wallpaper-Free-download.png" alt="Imagen 2">
+          <h3>Fundadores</h3>
+        </div>
+        <div class="galeria-item">
+          <img src="https://img.freepik.com/premium-vector/serene-nighttime-landscape-with-mountains-lake-sunset_1203312-3291.jpg" alt="Imagen 3">
+          <h3>Nuestro Líder</h3>
+        </div>
+        <div class="galeria-item">
+          <img src="https://cdn.prod.website-files.com/6645ebe9ea0696e0566142c7/66968228e57e0a034f1b7b15_Thumbnail%20(1).webp" alt="Imagen 4">
+          <h3>Especialistas</h3>
+        </div>
+      </div>
+      <div class="galeria-botones">
+        <button class="btn-accion">Ver más fotos</button>
+        <button class="btn-accion">Descargar imágenes</button>
+      </div>
+    </section>
+
+    <!-- VENTANA 3: CONTACTO -->
+    <section id="ventanaContacto" class="ventana">
+      <h1>Contacto</h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Ciudad de Meteoro</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+123 456 7890</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@phantomtroupe.com</p>
+          </div>
+        </div>
+        <form class="contact-form">
+          <h3>Envíanos un mensaje</h3>
+          <input type="text" placeholder="Nombre" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <textarea placeholder="Tu mensaje" required></textarea>
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VENTANA 4: SERVICIOS -->
+    <section id="ventanaServicios" class="ventana">
+      <h1>Nuestros Servicios</h1>
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <i class="fas fa-gem fa-3x"></i>
+          <h3>Adquisición de Objetos</h3>
+          <p>Especialistas en adquirir objetos de valor mediante métodos no convencionales.</p>
+          <button class="btn-info">Más información</button>
+        </div>
+        <div class="servicio-card">
+          <i class="fas fa-shield-alt fa-3x"></i>
+          <h3>Protección</h3>
+          <p>Ofrecemos servicios de protección para clientes selectos en situaciones de riesgo.</p>
+          <button class="btn-info">Más información</button>
+        </div>
+        <div class="servicio-card">
+          <i class="fas fa-search fa-3x"></i>
+          <h3>Investigación</h3>
+          <p>Investigamos y rastreamos personas u objetos a petición de nuestros clientes.</p>
+          <button class="btn-info">Más información</button>
+        </div>
+        <div class="servicio-card">
+          <i class="fas fa-skull-crossbones fa-3x"></i>
+          <h3>Eliminación</h3>
+          <p>Servicio exclusivo para situaciones que requieren soluciones permanentes.</p>
+          <button class="btn-info">Más información</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <footer>
+    <p>&copy; 2024 Phantom Troupe. Todos los derechos reservados.</p>
+  </footer> -->
+
+  <!-- Footer mejorado con más información -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section contact-info">
+          <h3>Contacto</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Ciudad de Meteoro 
+              <span class="phone-separator"></span> 
+              <i class="fas fa-phone"></i> +123 456 7890
+          </p>
+          <p><i class="fas fa-envelope"></i> info@phantomtroupe.com</p>
+      </div>
+  
+      <div class="footer-section social-links">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+  </div>  
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Phantom Troupe. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+  <script src="../JS/script.js"></script>
+
+
+
+
+  <!-- Modales de Login y Signup: Ahora accesibles desde cualquier sección -->
+<!-- Modal de Login -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Login</h2>
+    <form action="../PHP/login.php" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required><br>
+      <input type="password" name="password" placeholder="Contraseña" required><br>
+      <input type="button" value="Iniciar Sesión" name="login">
+
+    </form>
+    
+    <p>¿No tienes una cuenta? <a href="#" id="showSignup">Registrarse</a></p>
+  
+    <!-- Botón para reestablecer la contraseña -->
+    <p>¿Has olvidado tu contraseña? <a href="#" id="showResetPassword">Reestablecer Contraseña</a></p>
+  </div>
+</div>
+
+<!-- Modal para Reestablecer Contraseña -->
+<div id="resetPasswordModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Reestablecer Contraseña</h2>
+
+    <!-- Formulario 1: Solicitar correo para enviar el código -->
+    <div id="formulario1">
+      <form action="../PHP/enviarCodigo.php" method="POST" id="formCorreo">
+        <input type="email" name="correo" placeholder="Correo Electrónico" required><br>
+        <button type="submit" name="enviarCodigo" id="enviarCodigo">Enviar Código de Recuperación</button>
+      </form>
+      <p>¿Ya tienes una cuenta? <a href="#" id="showLogin">Iniciar Sesión</a></p>
+    </div>
+
+    <!-- Formulario 2: Ingresar código de recuperación -->
+    <div id="formulario2" style="display: none;">
+      <form action="../PHP/validarCodigo.php" method="POST" id="formCodigo">
+        <input type="text" name="codigo" placeholder="Código de Recuperación" required><br>
+        <button type="submit" name="validarCodigo" id="validarCodigo">Validar Código</button>
+      </form>
+      <p id="errorCodigo" style="color: red; display: none;">Error, ese código no fue el enviado.</p>
+    </div>
+
+    <!-- Formulario 3: Ingresar nueva contraseña -->
+    <div id="formulario3" style="display: none;">
+      <form action="../PHP/reestablecerContrasena.php" method="POST" id="formContrasena">
+        <input type="password" name="nuevaContrasena" placeholder="Nueva Contraseña" required><br>
+        <input type="password" name="confirmarContrasena" placeholder="Confirmar Nueva Contraseña" required><br>
+        <button type="submit" name="reestablecerContrasena" id="reestablecerContrasena">Reestablecer Contraseña</button>
+      </form>
+    </div>
+
+    <!-- Botón para cerrar la ventana -->
+    <button id="cerrarModal">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  // Obtener elementos del DOM
+  
+  const formulario1 = document.getElementById('formulario1');
+  const formulario2 = document.getElementById('formulario2');
+  const formulario3 = document.getElementById('formulario3');
+  const errorCodigo = document.getElementById('errorCodigo');
+
+  // Mostrar el modal de reestablecer contraseña
+  showResetPassword.addEventListener('click', function(e) {
+    e.preventDefault();
+    loginModal.style.display = 'none'; // Ocultar el modal de login
+    resetPasswordModal.style.display = 'block'; // Mostrar el modal de reestablecer contraseña
+  });
+
+  // Mostrar el modal de login
+  showLogin.addEventListener('click', function(e) {
+    e.preventDefault();
+    resetPasswordModal.style.display = 'none'; // Ocultar el modal de reestablecer contraseña
+    loginModal.style.display = 'block'; // Mostrar el modal de login
+  });
+
+  // Cerrar el modal de login o reestablecer contraseña
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      resetPasswordModal.style.display = 'none';
+      loginModal.style.display = 'block'; // Volver al login cuando se cierre el modal
+    });
+  });
+
+  // Mostrar formulario 2 cuando se envíe el correo
+  const enviarCodigo = document.getElementById('enviarCodigo');
+  enviarCodigo.addEventListener('click', function(e) {
+    e.preventDefault(); // Evita el envío normal del formulario
+    formulario1.style.display = 'none';
+    formulario2.style.display = 'block';
+  });
+
+  // Validar el código de recuperación
+  const validarCodigo = document.getElementById('validarCodigo');
+  validarCodigo.addEventListener('click', function(e) {
+    e.preventDefault(); // Evita el envío normal del formulario
+    const codigoIngresado = document.querySelector('input[name="codigo"]').value;
+    
+    // Simulación de la validación del código
+    const codigoCorrecto = '123456'; // Este es un ejemplo, deberías validar con el servidor
+    
+    if (codigoIngresado === codigoCorrecto) {
+      formulario2.style.display = 'none';
+      formulario3.style.display = 'block';
+      errorCodigo.style.display = 'none'; // Esconde el mensaje de error si el código es correcto
+    } else {
+      errorCodigo.style.display = 'block'; // Muestra el mensaje de error si el código es incorrecto
+    }
+  });
+
+  // Reestablecer la contraseña
+  const reestablecerContrasena = document.getElementById('reestablecerContrasena');
+  reestablecerContrasena.addEventListener('click', function(e) {
+    e.preventDefault(); // Evita el envío normal del formulario
+    const nuevaContrasena = document.querySelector('input[name="nuevaContrasena"]').value;
+    const confirmarContrasena = document.querySelector('input[name="confirmarContrasena"]').value;
+    
+    if (nuevaContrasena === confirmarContrasena) {
+      alert('Contraseña reestablecida exitosamente');
+      // Aquí puedes hacer el envío del formulario para actualizar la contraseña
+    } else {
+      alert('Las contraseñas no coinciden');
+    }
+  });
+</script>
+
+    
+  
+
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Registrarse</h2>
+    <form action="../PHP/register.php" method="POST">
+      <input type="text" name="User" placeholder="Usuario" required><br>
+      <input type="email" name="Correo" placeholder="Correo electrónico" required><br>
+      <input type="email" name="CorreoR" placeholder="Correo electrónico de respaldo" required><br>
+      <input type="password" name="Password" placeholder="Contraseña" required><br>
+      <input type="text" name="CedulaIden" placeholder="Cédula de Identidad" required><br>
+      <input type="submit" placeholder="Registrarse" name="signUp">
+      <input type="reset">
+    </form>
+    <p><a href="#" id="showLogin">Iniciar sesión</a></p>
+  </div>
+</div>
+
+
+</body>
+</html>

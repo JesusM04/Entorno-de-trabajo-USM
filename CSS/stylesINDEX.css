@@ -1,0 +1,948 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* ENCABEZADO Y NAVEGACIÓN */
+header {
+  background-color: #222;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #ddd;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #fff;
+  background-color: #444;
+}
+
+.nav-button.active {
+  color: #fff;
+  background-color: #e91e63;
+}
+
+/* CONTENIDO PRINCIPAL */
+main {
+  flex: 1;
+  padding: 2rem;
+  background: #000000;
+}
+
+/* SISTEMA DE VENTANAS */
+.ventana {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.ventana.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  background-color: #e91e63;
+  min-width: 120px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mostrar el menú solo cuando se pase el mouse sobre "Cuenta" */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* VENTANA INICIO */
+/* Estilo para la sección Hero */
+.hero {
+  background: none; /* Elimina cualquier fondo de color */
+  position: relative;
+  /* background-image: url('https://wallpapers.com/images/featured/phantom-troupe-7k6nxj03nfpgzvwv.jpg'); Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra en el texto para hacerlo más legible */
+  overflow: hidden;
+  width: 100%; /* Hacer que el Hero ocupe el 100% del ancho de la ventana */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Capa de color oscuro sobre el fondo */
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2; /* Asegura que el contenido esté por encima de la capa oscura */
+  text-align: center;
+  padding: 0 20px; /* Añadí algo de espacio lateral */
+  max-width: 100%; /* El contenedor no será más ancho que el 80% de la pantalla */
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+  margin: 0 auto; /* Centra el contenido */
+}
+
+.phantom-title {
+  font-size: 5rem; /* Título grande */
+  font-family: 'Impact', sans-serif; /* Fuente fuerte y llamativa */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  letter-spacing: 5px; /* Espaciado entre letras */
+  margin-bottom: 20px;
+  border-bottom: 3px solid #e50914; /* Borde rojo debajo del título */
+  padding-bottom: 10px;
+  animation: title-fade 1s ease-out; /* Efecto de desvanecimiento al cargar */
+  display: inline-block; /* Asegura que el título ocupe solo el espacio necesario */
+  width: 100%; /* Hacer que el título ocupe todo el ancho disponible */
+  text-align: center; /* Alineación centrada */
+}
+
+.phantom-subtitle {
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  animation: subtitle-slide 1s ease-out; /* Animación de deslizamiento */
+  display: inline-block; /* Asegura que el subtítulo también ocupe todo el ancho */
+  width: 100%; /* Hacer que el subtítulo ocupe todo el ancho */
+  margin-top: 10px; /* Para dar un pequeño margen arriba */
+}
+
+/* Animación para el título */
+@keyframes title-fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* Desplazamiento desde la izquierda */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación para el subtítulo */
+@keyframes subtitle-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(50px); /* Desplazamiento desde la derecha */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Efecto de hover en el título */
+.phantom-title:hover {
+  color: #e50914; /* Rojo intenso */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 0, 0.6); /* Brillo y efecto de luz */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+/* Mejoras de estilo para el contenedor del Hero */
+.hero .container {
+  width: 80%; /* Limitar el ancho máximo del contenedor */
+  text-align: center; /* Centra el contenido */
+}
+
+
+/* Estilo para el encabezado <h2> */
+h2 {
+  font-size: 2.5rem; /* Tamaño de fuente grande */
+  font-weight: 700;  /* Negrita */
+  color: #ffffff !important; /* Forzar el color blanco */
+  text-align: center; /* Centrado */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  margin-bottom: 2rem; /* Espacio debajo del encabezado */
+  padding: 10px; /* Relleno alrededor del texto */
+  border-bottom: 3px solid #ffffff; /* Línea de borde debajo del texto en blanco */
+  font-family: 'Arial', sans-serif; /* Fuente personalizada */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  background-color: transparent; /* Asegúrate de que el fondo sea transparente */
+}
+
+
+
+/* Carrusel */
+.carousel-section {
+  padding: 4rem 2rem;
+  background-color:#020202; /* Fondo suave para separar de otras secciones */
+}
+
+.carousel-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px; /* Aumentamos el tamaño máximo para que se vea más imponente */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra más suave y elegante */
+  background-color: #000000;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+  display: none;
+  transition: opacity 0.5s ease-out;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 15px; /* Bordes redondeados para las imágenes */
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo más oscuro para resaltar el texto */
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  max-width: 90%;
+  text-align: left;
+}
+
+.carousel-caption h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Controles del carrusel */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1); /* Le da un efecto sutil de aumento */
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* Animaciones de la transición */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* VENTANA GALERÍA */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.galeria-item {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.galeria-item h3 {
+  padding: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.galeria-botones {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn-accion {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-accion:hover {
+  background-color: #0d8aee;
+  transform: scale(1.05); /* Efecto sutil de crecimiento */
+}
+
+/* VENTANA CONTACTO */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  color: white;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #e91e63;
+}
+
+.contact-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #c1134e;
+}
+
+/* VENTANA SERVICIOS */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.servicio-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+}
+
+.servicio-card i {
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+.servicio-card h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.servicio-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.btn-info {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+  background-color: #555;
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+/* 🌟 Footer general */
+.footer-container {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  /* background: #181818; Color oscuro elegante */
+  color: #d1d1d1; /* Texto en gris claro para mejor contraste */
+  padding: 15px 30px;
+  border-top: 2px solid #333; /* Línea sutil en el borde superior */
+  font-size: 14px;
+}
+
+/* 📌 Sección de contacto */
+.contact-info h3, .social-links h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.contact-info p {
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre iconos y texto */
+}
+
+/* 🚀 Separador discreto entre ubicación y teléfono */
+.phone-separator::before {
+  content: "|";
+  margin: 0 8px;
+  color: #555;
+}
+
+/* 🎭 Redes sociales */
+.social-icons {
+  display: flex;
+  gap: 12px; /* Espaciado controlado entre iconos */
+}
+
+.social-icons a {
+  color: #d1d1d1;
+  font-size: 30px;
+  transition: color 0.3s ease-in-out;
+}
+
+
+.social-icons a:hover {
+  color: #ffffff; /* Cambio sutil al pasar el mouse */
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .carousel-item img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .nav-buttons {
+    justify-content: center;
+  }
+  
+  .carousel-item img {
+    height: 250px;
+  }
+  
+  .servicios-grid, 
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal general */
+/* Modal General */
+.modal {
+  display: none; /* Escondido por defecto */
+  position: fixed;
+  z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente más oscuro */
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  width: 90%; /* Más ancho en pantallas pequeñas */
+  max-width: 500px; /* Ancho máximo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilo para el botón de cierre dentro del modal */
+.close-modal {
+  color: #888;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #e74c3c; /* Rojo para indicar que se puede cerrar */
+}
+
+/* Estilo para los títulos dentro del modal */
+.modal-content h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilos para los campos de entrada */
+.modal-content input[type="email"],
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo para los campos al estar enfocados */
+.modal-content input[type="email"]:focus,
+.modal-content input[type="text"]:focus,
+.modal-content input[type="password"]:focus {
+  border-color: #4CAF50; /* Verde cuando está enfocado */
+  outline: none;
+}
+
+/* Estilo para los botones dentro del modal */
+.modal-content button {
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 0; /* Espaciado entre los botones */
+}
+
+/* Efecto hover para los botones */
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para los enlaces dentro del modal */
+.modal-content a {
+  color: #333; /* Títulos en color oscuro */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para el mensaje de error */
+#errorCodigo {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Estilo para el botón de cerrar */
+#cerrarModal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+#cerrarModal:hover {
+  background-color: #c0392b;
+}
+
+/* Estilo para los títulos de los enlaces de "Iniciar sesión", "Registrarse" y "Reestablecer contraseña" */
+.modal-content p a {
+  color: #333; /* Color oscuro */
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Espaciado general */
+.modal-content p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+
+/* Estilo para los campos de correo y correo de respaldo */
+/* Hacer que todos los campos tengan el mismo tamaño */
+input[type="text"], input[type="password"], input[type="email"], input[name="correoR"], input[name="cedula"], textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+/* Seleccionamos los botones de submit y reset dentro de un formulario */
+/* Contenedor para los botones */
+/* Contenedor para los botones */
+form {
+  display: flex;
+  flex-direction: column; Asegura que los elementos estén en columna
+  align-items: center; /* Centra todo el contenido dentro del formulario */
+  text-align: center; /* Asegura que el texto también se centre */
+}
+
+.form-buttons {
+  display: flex;  /* Usa flexbox para alinear los botones */
+  justify-content: center; /* Centra los botones */
+  gap: 10px; /* Espacio entre botones */
+  width: 100%; /* Asegura que el contenedor ocupa todo el ancho disponible */
+}
+
+
+/* Estilos para los botones */
+form input[type="submit"], 
+form input[type="reset"] {
+  background-color: #2196F3;  /* Azul */
+  color: white;
+  padding: 0.5rem 1rem;  /* Reduce el tamaño del padding */
+  width: auto; /* Deja que el ancho se adapte al contenido */
+  min-width: 100px; /* Tamaño mínimo */
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem; /* Reduce el tamaño de la fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto al pasar el ratón por encima */
+form input[type="submit"]:hover, 
+form input[type="reset"]:hover {
+  background-color: #0d8aee;
+}
+
+/* Estilo adicional para el botón de reset */
+form input[type="reset"] {
+  background-color: #e91e63; /* Rojo */
+}
+
+form input[type="reset"]:hover {
+  background-color: #c1134e;
+}
+
+
+
+
+/* Efecto en el foco de los campos */
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[name="correoR"]:focus, textarea:focus {
+  border-color: #3498db; /* Azul para indicar que el campo está en foco */
+  outline: none;
+}
+
+/* Contenedor de la contraseña */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Estilo para la casilla de contraseña */
+input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  padding-right: 2.5rem; /* Deja espacio para el ícono */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Ícono de mostrar/ocultar contraseña */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+/* Estilo del enlace para cambiar entre Login y Signup */
+p a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo de los botones de Login y Signup */
+button#btnLogin, button#btnSignup {
+  background: none;
+  border: none;
+  color: #ddd;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button#btnLogin:hover, button#btnSignup:hover {
+  background-color: #e91e63;
+}
+
+/* Estilo para el modal en dispositivos pequeños */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Más ancho en pantallas pequeñas */
+    padding: 1.5rem;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"], textarea {
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente más pequeño en móviles */
+  }
+
+  button[type="submit"], button[type="reset"] {
+    padding: 0.7rem 1.2rem; /* Ajuste de padding para móviles */
+  }
+}
